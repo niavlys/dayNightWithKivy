@@ -1,0 +1,19 @@
+DL_BoxLayout:
+    id: backgroundLayout 
+    backgroundColor: 0,0,0,1
+    canvas.before:
+        Color:
+            rgba: self.backgroundColor
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    orientation: 'vertical'
+    DL_Label:
+        text: 'use switch below to day or night!'
+    Switch:
+        id: dayNightSwitch
+        on_active: app.dayNight = self.active
+    DL_Label:
+        text: 'check below to use auto dayNight based on sensor!'
+    CheckBox:
+        on_active: app.autoDayNight(self.active)
